@@ -107,9 +107,10 @@ if __name__ == '__main__':
                 line["write_percent"] = (100.0 * line["write_bytes"]) / stats['total']['write_bytes']
             if stats['total']['read_bytes']:
                 line["read_percent"] = (100.0 * line["read_bytes"]) / stats['total']['read_bytes']
+            line["zvol"] = line["zvol"].ljust(60)
 
             for k in ['reads_completed', 'writes_completed', 'read_bytes', 'write_bytes']:
                 line[k] = pretty_number(line[k])
-            print("%(zvol)40s %(reads_completed)8s %(writes_completed)8s %(read_bytes)12s %(write_bytes)12s %(read_percent)6.2f%% %(write_percent)6.2f%%" % line)
+            print("%(zvol)60s %(reads_completed)8s %(writes_completed)8s %(read_bytes)12s %(write_bytes)12s %(read_percent)6.2f%% %(write_percent)6.2f%%" % line)
         time.sleep(1)
         print("----")
