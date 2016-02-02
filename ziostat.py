@@ -95,8 +95,9 @@ class ZIOStat(object):
 if __name__ == '__main__':
     z = ZIOStat()
     while True:
-        print("%(zvol)60s %(reads_completed)8s %(writes_completed)8s %(read_bytes)12s %(write_bytes)12s" % {"zvol": "device", "reads_completed": "read ops", "writes_completed": "write ops", "read_bytes": "read B/s", "write_bytes": "write B/s"})
         stats = z.get_diskstats()
+        if stats.keys():
+            print("\033[1m%(zvol)60s %(reads_completed)8s %(writes_completed)8s %(read_bytes)12s %(write_bytes)12s %(read_percent)8s %(write_percent)8s\033[0m" % {"zvol": "device".ljust(60), "reads_completed": "read ops", "writes_completed": "write ops", "read_bytes": "read B/s", "write_bytes": "write B/s", "read_percent": "read %", "write_percent": "write %"})
         for device in sorted(stats.keys()):
             #if device == 'total':
             #    continue
@@ -111,6 +112,6 @@ if __name__ == '__main__':
 
             for k in ['reads_completed', 'writes_completed', 'read_bytes', 'write_bytes']:
                 line[k] = pretty_number(line[k])
-            print("%(zvol)60s %(reads_completed)8s %(writes_completed)8s %(read_bytes)12s %(write_bytes)12s %(read_percent)6.2f%% %(write_percent)6.2f%%" % line)
+            print("%(zvol)60s %(reads_completed)9s %(writes_completed)8s %(read_bytes)12s %(write_bytes)12s %(read_percent)6.2f%% %(write_percent)6.2f%%" % line)
         time.sleep(1)
         print("----")

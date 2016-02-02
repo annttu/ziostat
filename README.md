@@ -5,11 +5,11 @@ Per zfs volume iostat.
 
 ## Output
 
-                                  device read ops write ops     read B/s    write B/s
-                                   total        0         0            0            0   0.00%   0.00%
-                   data/kvm/sirens-disk0        0         0            0            0   0.00%   0.00%
-      data/kvm/dev.annttu.fi/possu2/root        0         0            0            0   0.00%   0.00%
-      data/kvm/dev.annttu.fi/possu2/data        0         0            0            0   0.00%   0.00%
+    device                                                       read ops write ops     read B/s    write B/s   read %  write %</b>
+    total                                                               0         0            0            0   0.00%   0.00%
+    data/kvm/dev.annttu.fi/sirens/disk0                                 0         0            0            0   0.00%   0.00%
+    data/kvm/dev.annttu.fi/virtual1/root                                0         0            0            0   0.00%   0.00%
+    data/kvm/dev.annttu.fi/virtual/data                                 0         0            0            0   0.00%   0.00%
 
 
 # License
