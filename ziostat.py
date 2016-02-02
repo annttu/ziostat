@@ -94,7 +94,6 @@ class ZIOStat(object):
 
 if __name__ == '__main__':
     z = ZIOStat()
-    print(z.diskmap)
     while True:
         print("%(zvol)60s %(reads_completed)8s %(writes_completed)8s %(read_bytes)12s %(write_bytes)12s" % {"zvol": "device", "reads_completed": "read ops", "writes_completed": "write ops", "read_bytes": "read B/s", "write_bytes": "write B/s"})
         stats = z.get_diskstats()
